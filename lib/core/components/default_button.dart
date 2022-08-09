@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../style/color_manager.dart';
 
 /// A custom button that has a default style

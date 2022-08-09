@@ -6,7 +6,6 @@ import 'package:payment/modules/register/register_screen.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 import '../../core/resources/constants.dart';
-import '../payment_methods/payment_methods_screen.dart';
 
 class CreditCardScreen extends StatefulWidget {
   const CreditCardScreen({Key? key}) : super(key: key);

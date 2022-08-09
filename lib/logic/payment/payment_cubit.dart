@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:payment/core/resources/constants.dart';
@@ -37,11 +39,8 @@ class PaymentCubit extends Cubit<PaymentState> {
       url: EndPointsManger.AUTH,
       data: {"api_key": Constants.PAYMOB_API_KEY},
     ).then((value) {
-      // firstTokenModel = FirstTokenModel.fromJson(value.data);
-      //  Constants.PAYMOB_FIRST_TOKEN = firstTokenModel!.token.toString();
       Constants.PAYMOB_FIRST_TOKEN = value.data['token'].toString();
-      print('first token: ${Constants.PAYMOB_FIRST_TOKEN}');
-    //  emit(PaymentFirstTokenSuccessState());
+      log('first token: ${Constants.PAYMOB_FIRST_TOKEN}');
       getOrderId();
     }).catchError((error) {
       emit(PaymentFirstTokenErrorState(error));
@@ -59,8 +58,7 @@ class PaymentCubit extends Cubit<PaymentState> {
       },
     ).then((value) {
       Constants.ORDER_ID = value.data['id'].toString();
-      print('order id: ${Constants.ORDER_ID}');
-   //   emit(PaymentOrderIdSuccessState());
+      log('order id: ${Constants.ORDER_ID}');
       getFinalTokenCard();
     }).catchError((error) {
       emit(PaymentOrderIdErrorState(error));
@@ -96,8 +94,7 @@ class PaymentCubit extends Cubit<PaymentState> {
       },
     ).then((value) {
       Constants.FINAL_TOKEN_CARD = value.data['token'].toString();
-      print('final token card: ${Constants.FINAL_TOKEN_CARD}');
-     // emit(PaymentFinalTokenSuccessState());
+      log('final token card: ${Constants.FINAL_TOKEN_CARD}');
       getFinalTokenKiosk();
     }).catchError((error) {
       emit(PaymentFinalTokenErrorState(error));
@@ -134,8 +131,7 @@ class PaymentCubit extends Cubit<PaymentState> {
       },
     ).then((value) {
       Constants.FINAL_TOKEN_KIOSK = value.data['token'].toString();
-      print('final token kiosk: ${Constants.FINAL_TOKEN_KIOSK}');
-     // emit(PaymentFinalTokenKioskSuccessState());
+      log('final token kiosk: ${Constants.FINAL_TOKEN_KIOSK}');
       getRefCode();
     }).catchError((error) {
       emit(PaymentFinalTokenKioskErrorState(error));
@@ -154,7 +150,7 @@ class PaymentCubit extends Cubit<PaymentState> {
       },
     ).then((value) {
       Constants.REF_CODE = value.data['id'].toString();
-      print('ref code: ${Constants.REF_CODE}');
+      log('ref code: ${Constants.REF_CODE}');
       emit(PaymentRefCodeSuccessState());
     }).catchError((error) {
       emit(PaymentRefCodeErrorState(error));

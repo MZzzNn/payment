@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../style/color_manager.dart';
 
 /// A class that creates a text field with a label and a suffix icon.
