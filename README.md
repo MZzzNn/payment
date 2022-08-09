@@ -12,7 +12,7 @@ This project is a starting point for learning GetX.
 2. You will be able to add the payment service through Visa Card inside the application.
 3. You will be able to add the payment service through Reference Code inside the application.
 4. You will be able to add the payment service through Visa Card inside the application.
-5. You will be able to add the payment service through Value inside the application
+5. You will be able to add the payment service through Valu inside the application
 
 ## ✌ Preview:
 
